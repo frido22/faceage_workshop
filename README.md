@@ -28,6 +28,9 @@ uv sync
 
 This downloads the model weights and synthetic test images into `models/` and `data/`.
 
+Download source:
+https://www.dropbox.com/scl/fo/8umk60sre50kuenh4h6ui/AHFEM6nrvI4JlxKWyA7UXDg?rlkey=32tydco1iednsuw0rlkpcu53u&st=otll826s&dl=0
+
 ```bash
 uv run python scripts/download_assets.py
 ```
@@ -35,16 +38,13 @@ uv run python scripts/download_assets.py
 ## 4. Run the demo dataset
 
 ```bash
-uv run faceage-run \
-  --input data/synthetic_dataset_cropped_aligned \
-  --model models/faceage_model.h5 \
-  --output outputs/demo_results.csv
+uv run python run_faceage.py
 ```
 
 Open the result:
 
 ```bash
-open outputs/demo_results.csv
+open outputs/faceage_results.csv
 ```
 
 The CSV has one row per image:
@@ -56,14 +56,12 @@ example_image,72.3
 
 ## 5. Run your own images
 
-Put cropped, aligned face images in a local folder. Use study IDs in filenames,
-not names, MRNs, dates of birth, or other identifiers.
+Replace the test images in `data/input_images/` with your own cropped, aligned
+face images. Use study IDs in filenames, not names, MRNs, dates of birth, or
+other identifiers.
 
 ```bash
-uv run faceage-run \
-  --input data/my_cropped_faces \
-  --model models/faceage_model.h5 \
-  --output outputs/my_results.csv
+uv run python run_faceage.py
 ```
 
 ## Input Requirements

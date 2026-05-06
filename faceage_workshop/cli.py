@@ -1,20 +1,23 @@
 from __future__ import annotations
 
-import argparse
 import os
+from pathlib import Path
 
 from faceage_workshop.predict import predict_folder
+
+INPUT_DIR = Path("data/input_images")
+MODEL_PATH = Path("models/faceage_model.h5")
+OUTPUT_CSV = Path("outputs/faceage_results.csv")
 
 
 def main() -> None:
     os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
 
-    parser = argparse.ArgumentParser(description="Run FaceAge on a folder of cropped, aligned face images.")
-    parser.add_argument("--input", required=True, help="Folder containing .jpg, .jpeg, or .png images.")
-    parser.add_argument("--model", default="models/faceage_model.h5", help="Path to faceage_model.h5.")
-    parser.add_argument("--output", default="outputs/results.csv", help="Output CSV path.")
-    args = parser.parse_args()
-
-    result = predict_folder(args.input, args.model, args.output)
+    print(f"Input: {INPUT_DIR}")
+    print(f"Model: {MODEL_PATH}")
+    print(f"Output: {OUTPUT_CSV}")
     print("")
-    print(f"Saved {len(result)} predictions to {args.output}")
+
+    result = predict_folder(INPUT_DIR, MODEL_PATH, OUTPUT_CSV)
+    print("")
+    print(f"Saved {len(result)} predictions to {OUTPUT_CSV}")

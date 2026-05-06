@@ -12,9 +12,6 @@ dependencies = [
     "tensorflow==2.15.1",
 ]
 
-[project.scripts]
-faceage-run = "faceage_workshop.cli:main"
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

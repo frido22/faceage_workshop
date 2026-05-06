@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import argparse
 import shutil
 import tempfile
 import urllib.request
@@ -15,16 +14,11 @@ DEFAULT_URL = (
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Download workshop model weights and synthetic test images.")
-    parser.add_argument("--url", default=DEFAULT_URL, help="Dropbox shared-folder download URL.")
-    parser.add_argument("--force", action="store_true", help="Overwrite existing files.")
-    args = parser.parse_args()
-
     model_path = Path("models/faceage_model.h5")
-    data_path = Path("data/synthetic_dataset_cropped_aligned")
+    data_path = Path("data/input_images")
 
-    if model_path.exists() and data_path.exists() and not args.force:
-        print("Assets already exist. Use --force to download again.")
+    if model_path.exists() and data_path.exists():
+        print("Assets already exist.")
         return
 
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -32,8 +26,8 @@ def main() -> None:
         zip_path = tmpdir_path / "faceage_assets.zip"
         extracted_path = tmpdir_path / "extracted"
 
-        print(f"Downloading assets to {zip_path} ...")
-        urllib.request.urlretrieve(args.url, zip_path)
+        print(f"Downloading assets from {DEFAULT_URL}")
+        urllib.request.urlretrieve(DEFAULT_URL, zip_path)
 
         print("Extracting assets ...")
         extracted_path.mkdir(parents=True, exist_ok=True)
