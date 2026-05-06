@@ -11,3 +11,6 @@ outputs/
 
 # Local notes
 .env
+
+# Local workshop slides
+slides/
