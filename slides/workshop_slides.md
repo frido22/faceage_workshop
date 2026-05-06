@@ -37,12 +37,12 @@ uv sync
 
 ## 4. Download The Demo Assets
 
-Download source:
-https://www.dropbox.com/scl/fo/8umk60sre50kuenh4h6ui/AHFEM6nrvI4JlxKWyA7UXDg?rlkey=32tydco1iednsuw0rlkpcu53u&st=otll826s&dl=0
-
 ```bash
 uv run python scripts/download_assets.py
 ```
+
+(Optional manual download:
+https://www.dropbox.com/scl/fo/8umk60sre50kuenh4h6ui/AHFEM6nrvI4JlxKWyA7UXDg?rlkey=32tydco1iednsuw0rlkpcu53u&st=otll826s&dl=0)
 
 This creates:
 
