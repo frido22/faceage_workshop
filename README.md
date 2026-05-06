@@ -32,7 +32,7 @@ This downloads the model weights and synthetic test images into `models/` and `d
 uv run python scripts/download_assets.py
 ```
 
-(Optional manual download:
+(Manual download link, optional:
 https://www.dropbox.com/scl/fo/8umk60sre50kuenh4h6ui/AHFEM6nrvI4JlxKWyA7UXDg?rlkey=32tydco1iednsuw0rlkpcu53u&st=otll826s&dl=0)
 
 ## 4. Run the demo dataset
