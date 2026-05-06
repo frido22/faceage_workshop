@@ -1,0 +1,13 @@
+.DS_Store
+.venv/
+.uv-cache/
+__pycache__/
+*.py[cod]
+
+# Downloaded workshop assets. Keep large files and any participant data out of git.
+data/
+models/
+outputs/
+
+# Local notes
+.env
